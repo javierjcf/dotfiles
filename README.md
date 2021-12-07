@@ -2,5 +2,7 @@
 
 
 ## Requisitos
-Intalar stow
-udo apt install stow'
+
+Intalar stow:
+
+`sudo apt install stow'
