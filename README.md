@@ -5,4 +5,4 @@
 
 Intalar stow:
 
-`sudo apt install stow'
+`sudo apt install stow`
