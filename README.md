@@ -16,7 +16,7 @@ Clonar repo en la carpeta home:
 `git clone git@github.com:javierjcf/.dotfiles.git dotfiles`
 
 Stow funciona creando enlaces simbólicos en el directorio padre a donde lo ejecutamos.
-**Es importante que la carpeta no exista sino stow no crea el enlace**
+**Es importante que la carpeta no exista sino stow no crea el enlace** Es decir, para la carpeta .config parece que no protesta, pero si dentro ya tenemos el fichero /kitty/kitty.conf no funcionará.
 
 Ejemplo para nvim
 
@@ -24,7 +24,7 @@ Ejemplo para nvim
 
 Creará el enlace a lo que hay dentro de dicha carpeta en el directorio padre a donde esté el repo.
 
-Como la carpeta nvim contiene la carpeta .config con su archivo init.vim, tendré un enlace simbólico ocn dicha estructura.
+Como la carpeta nvim contiene la carpeta .config con su archivo init.vim, tendré un enlace simbólico con dicha estructura. Para zsh solo tengo el archivo .zshrc así que será aquí donde se descomprima
 
 Cualquier cambio en los ficheros de configuración podrá subirse a github
 
