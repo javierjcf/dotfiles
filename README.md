@@ -16,6 +16,7 @@ Clonar repo en la carpeta home:
 `git clone git@github.com:javierjcf/.dotfiles.git dotfiles`
 
 Stow funciona creando enlaces simbólicos en el directorio padre a donde lo ejecutamos.
+**Es importante que la carpeta no exista sino stow no crea el enlace**
 
 Ejemplo para nvim
 
