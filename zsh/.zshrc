@@ -123,3 +123,6 @@ alias oldls="/usr/bin/ls"
 alias cat="batcat"
 alias ls="lsd"
 alias gc="git commit -n -am"
+
+# No pedir confirmación al borrar con rm *
+setopt rmstarsilent
