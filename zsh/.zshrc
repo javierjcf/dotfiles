@@ -124,5 +124,7 @@ alias cat="batcat"
 alias ls="lsd"
 alias gc="git commit -n -am"
 
+alias icat="kitty +kitten icat"
+
 # No pedir confirmación al borrar con rm *
 setopt rmstarsilent
