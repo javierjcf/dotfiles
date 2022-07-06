@@ -123,6 +123,7 @@ alias oldls="/usr/bin/ls"
 alias cat="batcat"
 alias ls="lsd"
 alias gc="git commit -n -am"
+alias vim="nvim"
 
 alias icat="kitty +kitten icat"
 

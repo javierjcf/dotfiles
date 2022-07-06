@@ -25,5 +25,5 @@ colorscheme nord
 set background=dark
 set termguicolors
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-b> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1 " Show hidden files in NerdTree buffer.
