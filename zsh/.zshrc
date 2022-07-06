@@ -128,3 +128,7 @@ alias icat="kitty +kitten icat"
 
 # No pedir confirmación al borrar con rm *
 setopt rmstarsilent
+
+# PARA DOODBA
+export UID GID="$(id -g $USER)" UMASK="$(umask)"
+export DOODBA_GITAGGREGATE_UID DOODBA_GITAGGREGATE_GID="$(id -g $USER)" DOODBA_UMASK="$(umask)"
