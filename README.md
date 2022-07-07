@@ -38,4 +38,11 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
+### Packer
+Para instalar el gestor de plugins [Packer](https://github.com/wbthomason/packer.nvim)
+```py
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
 Al abrir neovim dará error porque no tenemos el nord-theme. Hay que instalar los Plugins con el comando `:PlugInstall` dentro de vim
