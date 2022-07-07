@@ -1,6 +1,7 @@
 # .dotfiles
 
 Mis ficheros de configuración para:
+ - zsh
  - Kitty
  - nvim
 
@@ -31,6 +32,14 @@ Cualquier cambio en los ficheros de configuración podrá subirse a github
 ---
 
 # Cfgs
+
+## zsh
+Dependencias para alias de `ls` y `cat`:
+
+- [lsd](https://github.com/Peltoche/ls)
+- [bat](https://github.com/sharkdp/bat)
+
+bat se puede instalar con el repositorio por defecto para que funcione el alias de batcat
 
 ## NVIM
 Configuración actual en Lua, usando packer
