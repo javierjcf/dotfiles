@@ -2,7 +2,7 @@ require('settings')
 require('keymaps')
 require('plugins')
 
-vim.cmd("colorscheme nightfox")
--- vim.cmd("colorscheme nord")
+-- cargo el esquema de color en la carpeta plugin
 
 require("nvim-tree").setup()
+require("lualine").setup()

@@ -21,6 +21,14 @@ o.syntax = 'on'               -- hightlight sintax
 o.clipboard = 'unnamedplus'   -- using system keyboard
 --o.cc = '80'                     -- 80 as line border
 
+
+-- TIMEOUTS PARA EL REMAP DE JK COMO ESC
+o.timeout = true
+o.ttimeout = true
+o.timeoutlen = 1000
+o.ttimeoutlen = 50
+
+
 o.termguicolors = true
 
 
