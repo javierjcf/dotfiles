@@ -57,6 +57,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<leader>th", "<C-w>t<C-w>H", opts)
 keymap("n", "<leader>tk", "<C-w>t<C-w>K", opts)
 
+keymap('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--no-ignore', '--ignore-vcs',  '-g', '!.git' }})<cr>", opts)
 
 
 
@@ -69,8 +70,6 @@ keymap('n', '<C-B>', ':NvimTreeToggle<cr>', opts)
 keymap('i', '<C-B>', ':NvimTreeToggle<cr>', opts)
 
 --Telescope
-keymap('n', '<C-T>', ':Telescope<cr>', opts)
-
-keymap('n', '<C-P>', ':Telescope find_files<cr>', opts)
-keymap('n', '<leader>f', ':Telescope find_files<cr>', opts)
+keymap('n', '<C-P>', ':Telescope find<cr>', opts)
+keymap('i', '<C-P>', ':Telescope<cr>', opts)
 
