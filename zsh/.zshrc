@@ -120,6 +120,7 @@ export NVM_DIR="$HOME/.nvm"
 # CUSTOM ALIAS
 alias oldcat="/usr/bin/cat"
 alias oldls="/usr/bin/ls"
+alias oldvim="/usr/bin/vi"
 alias cat="batcat"
 alias ls="lsd"
 alias gc="git commit -n -am"
