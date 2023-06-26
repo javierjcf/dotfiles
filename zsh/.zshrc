@@ -5,6 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Custom sudo plugin
+if [ -f /usr/share/zsh-sudo/sudo.plugin.zsh ]; then
+    source /usr/share/zsh-sudo/sudo.plugin.zsh
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
@@ -134,3 +139,4 @@ setopt rmstarsilent
 # PARA DOODBA
 export UID GID="$(id -g $USER)" UMASK="$(umask)"
 export DOODBA_GITAGGREGATE_UID DOODBA_GITAGGREGATE_GID="$(id -g $USER)" DOODBA_UMASK="$(umask)"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
