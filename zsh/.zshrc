@@ -133,6 +133,29 @@ alias vim="nvim"
 
 alias icat="kitty +kitten icat"
 
+# CUSTOM FUNCTIONS
+irda() {
+  local container_name="${1:-}"
+  local container_id
+  invoke restart
+  if [ -n "$container_name" ]; then
+    container_name=$container_name"_odoo_1"
+    echo $container_name
+    container_id=$(docker ps | grep "$container_name" | cut -d" " -f1)
+  else
+    container_id=$(docker ps | grep "/odoo" | cut -d" " -f1)
+  fi
+
+  if [ -n "$container_id" ]; then
+    docker attach "$container_id"
+  else
+    echo "No se encontró ningún contenedor de Docker."
+  fi
+}
+
+
+
+
 # No pedir confirmación al borrar con rm *
 setopt rmstarsilent
 
