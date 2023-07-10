@@ -14,16 +14,8 @@ set relativenumber          " Relative numbers
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard
-
-
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'arcticicestudio/nord-vim'
-call plug#end()
-
-colorscheme nord
 set background=dark
 set termguicolors
 
-map <C-b> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1 " Show hidden files in NerdTree buffer.
+
+
