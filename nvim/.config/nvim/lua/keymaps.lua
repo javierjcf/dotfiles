@@ -26,12 +26,11 @@ keymap('v', 'jk', '<ESC>', opts)
 -- Guradar CTRL-S
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)
-
-
 -- Move text up and down
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
+
+--keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+--keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 
 -- Navigate buffers
 keymap("n", "<A-l>", ":bnext<CR>", opts)
@@ -57,11 +56,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<leader>th", "<C-w>t<C-w>H", opts)
 keymap("n", "<leader>tk", "<C-w>t<C-w>K", opts)
 
-keymap('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--no-ignore', '--ignore-vcs',  '-g', '!.git' }})<cr>", opts)
-
-
-
-
+-- Ya en telescope
+--keymap('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--no-ignore', '--ignore-vcs',  '-g', '!.git' }})<cr>", opts)
 
 -- PLUGINS
 
@@ -70,6 +66,5 @@ keymap('n', '<C-B>', ':NvimTreeToggle<cr>', opts)
 keymap('i', '<C-B>', ':NvimTreeToggle<cr>', opts)
 
 --Telescope
-keymap('n', '<C-P>', ':Telescope find<cr>', opts)
-keymap('i', '<C-P>', ':Telescope<cr>', opts)
+keymap('n', '<C-P>', '<cmd>Telescope find_files<cr>', opts)
 

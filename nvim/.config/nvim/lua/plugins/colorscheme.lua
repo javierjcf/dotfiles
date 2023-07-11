@@ -1,5 +1,4 @@
 return {
-    -- My plugins
     {
        "catppuccin/nvim",
     	name = "catppuccin",
