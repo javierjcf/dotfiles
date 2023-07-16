@@ -6,5 +6,8 @@ return {
     config = function()
         require("nvim-tree").setup({})
     end,
+    opts = {
+        auto_change_root = True,
+    }
 }
     

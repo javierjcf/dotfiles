@@ -2,12 +2,15 @@ return {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
-        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc="Find Files" },
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc="Find Files (root dir)" },
+        { "<C-p>",      "<cmd>Telescope find_files<cr>", desc="Find Files" },
         { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc="Live Grep" },
+        --git
+        { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "commits" },
+        { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
     },
     opts = {
         defaults = {
-            -- Con el --hidden y --no-ignore evito que no actue en los .gitignore
             vimgrep_arguments = {
                 "rg",
                 "-L",
@@ -17,8 +20,8 @@ return {
                 "--line-number",
                 "--column",
                 "--smart-case",
-                "--hidden",
-                "--no-ignore"
+                "--hidden", -- buscar en archivos oculotos tb
+                "--no-ignore" -- No tener en cuenta .gitignore, .ignore. .rgignore
             },
         },
         pickers = {

@@ -66,5 +66,5 @@ keymap('n', '<C-B>', ':NvimTreeToggle<cr>', opts)
 keymap('i', '<C-B>', ':NvimTreeToggle<cr>', opts)
 
 --Telescope
-keymap('n', '<C-P>', '<cmd>Telescope find_files<cr>', opts)
+--keymap('n', '<C-P>', '<cmd>Telescope find_files<cr>', opts)
 
