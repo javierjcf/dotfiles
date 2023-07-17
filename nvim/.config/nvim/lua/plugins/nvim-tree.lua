@@ -6,8 +6,15 @@ return {
     config = function()
         require("nvim-tree").setup({})
     end,
+    -- Lo de abajo no está funcionando
     opts = {
-        auto_change_root = True,
+        update_focused_file = {
+            enable = true,
+            update_cwd = true,
+        },
+        git = {
+            enable = true
+        },
     }
 }
     
