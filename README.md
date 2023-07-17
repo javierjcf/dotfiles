@@ -42,24 +42,4 @@ Dependencias para alias de `ls` y `cat`:
 bat se puede instalar con el repositorio por defecto para que funcione el alias de batcat
 
 ## NVIM
-Configuración actual en Lua, usando packer
-
-### Instalar VimPlug
-
-Para instalar el gestor de plugins [vim-plug](https://github.com/junegunn/vim-plug), lo usamos en el fichero init.vim
-```py
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-
-Al abrir neovim dará error porque no tenemos el nord-theme. Hay que instalar los Plugins con el comando `:PlugInstall` dentro de vim
-
-### Packer
-Para instalar el gestor de plugins [Packer](https://github.com/wbthomason/packer.nvim)
-```py
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
-
-Al abrir el editor nos dará error hay que hacer `:PackerUpdate` para instalar los plugins
-
-
+Configuración actual en Lua, usando lazy.vim
