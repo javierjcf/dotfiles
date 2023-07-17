@@ -84,7 +84,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions nvm)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions nvm sudo z copypath copyfile copybuffer)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.:pwd
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
 
