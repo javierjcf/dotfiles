@@ -122,14 +122,32 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# CUSTOM ALIAS
-alias oldcat="/usr/bin/cat"
-alias oldls="/usr/bin/ls"
-alias oldvim="/usr/bin/vi"
-alias cat="batcat"
-alias ls="lsd"
-alias gc="git commit -n -am"
-alias vim="nvim"
+ # CUSTOM ALIAS
+ alias oldcat="/usr/bin/cat"
+ alias oldls="/usr/bin/ls"
+ alias oldvim="/usr/bin/vi"
+
+ alias cat="batcat"
+ alias gc="git commit -n -am"
+ alias vim="nvim"
+
+ # bat
+ alias cat='bat'
+ alias catn='bat --style=plain'
+ alias catnp='bat --style=plain --paging=never'
+
+ # ls
+ alias ll='lsd -lh --group-dirs=first'
+ alias la='lsd -a --group-dirs=first'
+ alias l='lsd --group-dirs=first'
+ alias lla='lsd -lha --group-dirs=first'
+ alias ls='lsd --group-dirs=first'
+
+ #git
+ alias gc="git commit -n -am"
+
+ # j es autojump (j)
+ alias j='z'
 
 alias icat="kitty +kitten icat"
 
