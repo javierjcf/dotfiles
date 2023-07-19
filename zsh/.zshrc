@@ -180,6 +180,5 @@ setopt rmstarsilent
 # PARA DOODBA
 export UID GID="$(id -g $USER)" UMASK="$(umask)"
 export DOODBA_GITAGGREGATE_UID DOODBA_GITAGGREGATE_GID="$(id -g $USER)" DOODBA_UMASK="$(umask)"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
