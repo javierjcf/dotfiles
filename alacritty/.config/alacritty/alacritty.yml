@@ -910,6 +910,9 @@
   # Highlight window damage information.
   #highlight_damage: false
 
+import:
+  - ~/.config/alacritty/dracula.yml
+
 TERM: "alacritty"
 
 shell:

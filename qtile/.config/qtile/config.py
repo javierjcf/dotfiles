@@ -29,8 +29,33 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+import os
+import subprocess
+
+from libqtile import hook
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.Popen([home])
+
 mod = "mod4"
 terminal = guess_terminal()
+
+# JCF
+bar_color="#282a36"
+bar_size=30
+icon_size=26
+# my_font="CaskaydiaCove NF"
+my_font="Hack"
+font_size=14
+active_color="#f1fa8c"
+color_fg="#ffffff"
+color_bg="#282a36"
+inactive_color="#6272a4"
+dark_color="#44475a"
+white_color="#bd93f9"
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -77,33 +102,39 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    # ROFI
+    Key([mod], "space", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+#groups = [Group(i) for i in "123456789"]
+groups = [
+    Group(i) for i in ["","󰨞","","󱓧","5","6","7","8","9"]
+]
 
-for i in groups:
+for i, group in enumerate(groups):
+    numDesktop=str(i+1)
     keys.extend(
         [
             # mod1 + letter of group = switch to group
             Key(
                 [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+                numDesktop,
+                lazy.group[group.name].toscreen(),
+                desc="Switch to group {}".format(group.name),
             ),
             # mod1 + shift + letter of group = switch to & move focused window to group
             Key(
                 [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                numDesktop,
+                lazy.window.togroup(group.name, switch_group=True),
+                desc="Switch to & move focused window to group {}".format(group.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
             #     desc="move focused window to group {}".format(i.name)),
-        ]
+        ],
     )
 
 layouts = [
@@ -123,8 +154,9 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
+    # font="sans",
+    font=my_font,
+    fontsize=font_size,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -134,8 +166,24 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(
+                    active=active_color,
+                    inactive=inactive_color,
+                    border_width = 1,
+                    disable_drag = True,
+                    fontsize = icon_size,
+                    foreground = color_fg,
+                    background = color_bg,
+                    highlight_method="line",
+                    margin_x = 0,
+                    margin_y = 5,
+                    other_current_screen_border = dark_color,
+                    this_current_screen_border = white_color,
+                    other_screen_border = dark_color,
+                    padding_x = 10,
+                    padding_y = 0,
+                    urgen_alert_method='block'
+                ),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
@@ -151,8 +199,11 @@ screens = [
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
+                widget.CurrentLayout(),
+                
             ],
-            24,
+            30,
+            background=bar_color,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
