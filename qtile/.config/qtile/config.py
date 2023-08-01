@@ -39,23 +39,34 @@ def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
 
+
 mod = "mod4"
 terminal = guess_terminal()
 
 # JCF
-bar_color="#282a36"
-bar_size=30
-icon_size=26
+bar_color = "#282a36"
+bar_size = 30
+icon_size = 26
 # my_font="CaskaydiaCove NF"
-my_font="Hack"
-font_size=14
-active_color="#f1fa8c"
-color_fg="#ffffff"
-color_bg="#282a36"
-inactive_color="#6272a4"
-dark_color="#44475a"
-white_color="#bd93f9"
+my_font = "Hack"
+font_size = 14
+active_color = "#f1fa8c"
+color_fg = "#ffffff"
+color_bg = "#282a36"
+inactive_color = "#6272a4"
+dark_color = "#44475a"
+white_color = "#bd93f9"
+urgent_color = "#ff5555"
+text_color1 = "#bd93f9"
 
+def get_separator():
+    return widget.Sep(
+        linewidth=0,
+        padding=6,
+        foreground=color_fg,
+        background=color_bg
+    )
+ 
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -104,7 +115,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     # ROFI
-    Key([mod], "space", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
 ]
 
 #groups = [Group(i) for i in "123456789"]
@@ -169,35 +180,35 @@ screens = [
                 widget.GroupBox(
                     active=active_color,
                     inactive=inactive_color,
-                    border_width = 1,
-                    disable_drag = True,
-                    fontsize = icon_size,
-                    foreground = color_fg,
-                    background = color_bg,
+                    border_width=1,
+                    disable_drag=True,
+                    fontsize=icon_size,
+                    foreground=color_fg,
+                    background=color_bg,
                     highlight_method="line",
-                    margin_x = 0,
-                    margin_y = 5,
-                    other_current_screen_border = dark_color,
-                    this_current_screen_border = white_color,
-                    other_screen_border = dark_color,
-                    padding_x = 10,
-                    padding_y = 0,
-                    urgen_alert_method='block'
+                    margin_x=0,
+                    margin_y=5,
+                    other_current_screen_border=dark_color,
+                    this_current_screen_border=white_color,
+                    other_screen_border=dark_color,
+                    padding_x=10,
+                    padding_y=0,
+                    urgent_alert_method='block',
+                    urgent_border=urgent_color,
                 ),
+                #get_separator(),
                 widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.WindowName(
+                    foreground=text_color1,
+                    background=color_bg,
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Systray(
+                    icon_size=icon_size,
+                    background=color_bg,
+                ),
+                widget.Clock(format="%d-%Y-%m %a %I:%M %p"),
                 widget.QuickExit(),
                 widget.CurrentLayout(),
                 
