@@ -43,6 +43,10 @@ def autostart():
 mod = "mod4"
 terminal = guess_terminal()
 
+# ********************************** JCF ************************************
+# ********************************** JCF ************************************
+# ********************************** JCF ************************************
+
 # JCF
 bar_color = "#282a36"
 bar_size = 30
@@ -53,20 +57,48 @@ font_size = 14
 active_color = "#f1fa8c"
 color_fg = "#ffffff"
 color_bg = "#282a36"
+color_border_active = "#5e81ac"
+color_border_inactive = "#4c566a"
 inactive_color = "#6272a4"
 dark_color = "#44475a"
 white_color = "#bd93f9"
 urgent_color = "#ff5555"
 text_color1 = "#bd93f9"
+color_group1 = "#ff7f00"  # naranja
+
 
 def get_separator():
     return widget.Sep(
         linewidth=0,
         padding=6,
         foreground=color_fg,
-        background=color_bg
+        background=color_bg)
+
+
+def get_rectangle(color, type):
+    if type == 0:
+        icon = ""
+    else:
+        icon = ""
+    return widget.TextBox(text=icon,
+                          fontsize=bar_size + 5,
+                          foreground=color,
+                          padding=-3,
+                          background=color_bg)
+
+
+def get_icon(icon, color):
+    return widget.TextBox(
+        text=icon,
+        foreground=color_fg,
+        background=color,
+        fontsize=icon_size,
     )
- 
+
+
+# ********************************** JCF ************************************
+# ********************************** JCF ************************************
+# ********************************** JCF ************************************
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -118,13 +150,13 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
 ]
 
-#groups = [Group(i) for i in "123456789"]
+# groups = [Group(i) for i in "123456789"]
 groups = [
-    Group(i) for i in ["","󰨞","","󱓧","5","6","7","8","9"]
+    Group(i) for i in ["", "󰨞", "", "󱓧", "5", "6", "7", "8", "9"]
 ]
 
 for i, group in enumerate(groups):
-    numDesktop=str(i+1)
+    numDesktop = str(i+1)
     keys.extend(
         [
             # mod1 + letter of group = switch to group
@@ -148,8 +180,15 @@ for i, group in enumerate(groups):
         ],
     )
 
+
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(
+        border_focus_stack=["#d75f5f", "#8f3d3d"], 
+        border_width=4,
+        margin=5,
+        border_focus=color_border_active,
+        border_normal=color_border_inactive
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -173,7 +212,10 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
+    # LEFT SCREEN,
     Screen(),
+
+    # MIDLE SCREEN,
     Screen(
         top=bar.Bar(
             [
@@ -196,7 +238,7 @@ screens = [
                     urgent_alert_method='block',
                     urgent_border=urgent_color,
                 ),
-                #get_separator(),
+                # get_separator(),
                 widget.Prompt(),
                 widget.WindowName(
                     foreground=text_color1,
@@ -208,10 +250,17 @@ screens = [
                     icon_size=icon_size,
                     background=color_bg,
                 ),
+                # GRUPO 1
+                get_rectangle(color_group1, 0),
+                get_icon(" ", color_group1),
+                widget.Memory(
+                    foreground=color_fg,
+                    background=color_group1,
+                ),
+                get_rectangle(color_group1, 1),
                 widget.Clock(format="%d-%Y-%m %a %I:%M %p"),
                 widget.QuickExit(),
                 widget.CurrentLayout(),
-                
             ],
             30,
             background=bar_color,
