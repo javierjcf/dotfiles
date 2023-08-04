@@ -244,12 +244,6 @@ screens = [
                     foreground=text_color1,
                     background=color_bg,
                 ),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(
-                    icon_size=icon_size,
-                    background=color_bg,
-                ),
                 # GRUPO 1
                 get_rectangle(color_group1, 0),
                 get_icon(" ", color_group1),
@@ -258,6 +252,12 @@ screens = [
                     background=color_group1,
                 ),
                 get_rectangle(color_group1, 1),
+                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+                # widget.StatusNotifier(),
+                widget.Systray(
+                    icon_size=icon_size,
+                    background=color_bg,
+                ),
                 widget.Clock(format="%d-%Y-%m %a %I:%M %p"),
                 widget.QuickExit(),
                 widget.CurrentLayout(),
