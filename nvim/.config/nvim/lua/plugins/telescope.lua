@@ -3,11 +3,12 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
         { "<leader>ff", "<cmd>Telescope find_files<cr>", desc="Find Files (root dir)" },
-        -- { "<C-p>",      "<cmd>Telescope find_files<cr>", desc="Find Files" },
         { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc="Live Grep" },
         --git
         { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "commits" },
         { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
+        { "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "files" },
+
     },
     opts = {
         defaults = {
