@@ -6,4 +6,5 @@ return {
             require("bufferline").setup({})
         end,
     },
+
 }
