@@ -31,5 +31,7 @@ o.ttimeoutlen = 50
 
 o.termguicolors = true
 
+-- Quitar el $ en caso de que salga
+o.listchars = "tab:»·,trail:·"
 
 
