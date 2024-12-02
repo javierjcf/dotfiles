@@ -37,6 +37,10 @@ keymap("n", "<A-l>", ":bnext<CR>", opts)
 
 keymap("n", "<A-h>", ":bprevious<CR>", opts)
 
+-- Pegar sin perder el registro.
+keymap("v", "<leader>p", "\"_dP", opts)
+
+
 -- *************************************************************
 -- SPLITS
 -- *************************************************************
