@@ -123,6 +123,7 @@ alias gc="git commit -n -am"
 alias vim="nvim"
 
 # bat
+alias bat='batcat'
 alias cat='bat'
 alias catn='bat --style=plain'
 alias catnp='bat --style=plain --paging=never'
