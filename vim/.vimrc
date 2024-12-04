@@ -17,5 +17,30 @@ set clipboard=unnamedplus   " using system clipboard
 set background=dark
 set termguicolors
 
+set clipboard+=unnamed
+set clipboard+=unnamedplus
+
+set timeout
+set ttimeout
+set timeoutlen=500  " Tiempo de espera para la secuencia de teclas (en milisegundos)
+set ttimeoutlen=10   " Tiempo de espera para el teclado en modo terminal
+
+" Cambiar la forma del cursor según el modo
+"let &t_SI = "\<Esc>[6 q"
+"let &t_SR = "\<Esc>[4 q"
+"let &t_EI = "\<Esc>[2 q"
+
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20
 
 
+" *************************************************************
+"  BÁSICOS
+" *************************************************************
+
+" Configuración de atajos para escapar del modo de inserción
+inoremap jk <ESC>
+vnoremap jk <ESC>
+
+" Guardar archivo con CTRL-S
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <ESC>:w<CR>
