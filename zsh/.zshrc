@@ -158,14 +158,42 @@ irda() {
   fi
 }
 
-## Búsqueda mostrando los archivos y pudiendo hacer preview.
-function jcf-find() {
+## Búscar ficheros, con ripgrep fzf y bat preview
+function jcf-ff() {
     if [ -z "$1" ]; then
-        echo "Usage: jcf-find <search_string>"
+        echo "Usage: jcf-ff <ripgrep-query> [additional rg options]"
         return 1
     fi
-    rg --files-with-matches "$1" | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' --preview-window=right:60%:wrap --bind 'enter:execute(nvim {} < /dev/tty)'
+    
+    local query="$1"
+    shift  # Desplaza los argumentos para que `$@` contenga solo los parámetros adicionales
+    rg --hidden --files-with-matches "$query" "$@" | \
+        fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' \
+            --preview-window=right:60%:wrap \
+            --bind 'enter:execute(nvim {} < /dev/tty)'
 }
+
+## Buscar téxto en ficheros, con ripgrep fzf y bat preview
+function jcf-fg() {
+    if [ -z "$1" ]; then
+        echo "Usage: jcf-fg <ripgrep-string> [additional rg options]"
+        return 1
+    fi
+
+    local query="$1"
+    shift  # Desplaza los argumentos para que `$@` contenga solo los parámetros adicionales
+    rg --hidden --line-number --column "$query" "$@" | \
+        fzf --preview="bat --style=numbers --color=always --line-range=:500 --highlight-line {2} {1} | tail -n +{2}" \
+            --delimiter=":" \
+            --preview-window=right:50%
+}
+
+
+function rzf() {
+    local query="$1"  # Toma el texto de búsqueda como primer argumento
+    rg --line-number --column "$query" | fzf --preview="bat --style=numbers --color=always --line-range=:500 {1} | tail -n +{2}" --delimiter=":" --preview-window=right:50%
+}
+
 
 
 
