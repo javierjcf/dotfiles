@@ -28,12 +28,13 @@ return {
         "--hidden", -- Buscar en archivos ocultos
         "--no-ignore", -- Ignorar .gitignore, .ignore, etc.
       },
-      pickers = {
+    }
+    opts.pickers = {
         find_files = {
           -- Mostrar archivos ocultos pero excluir el contenido de `.git/`
+          hidden = true,
           find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!**/.git/*" },
         },
-      },
     }
     opts.extensions = {
       live_grep_args = {
