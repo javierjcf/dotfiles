@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.2",
+  tag = "0.1.8",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-live-grep-args.nvim",
@@ -8,6 +8,7 @@ return {
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
     { "<leader>fg", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc = "Grep (root dir)" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "buffers"},
     -- git
     { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "commits" },
     { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
