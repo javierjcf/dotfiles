@@ -118,15 +118,25 @@ alias oldcat="/usr/bin/cat"
 alias oldls="/usr/bin/ls"
 alias oldvim="/usr/bin/vi"
 
-alias cat="batcat"
+
+# bat/cat
+if command -v bat &> /dev/null; then
+    alias cat="bat"
+    alias catn='bat --style=plain'
+    alias catnp='bat --style=plain --paging=never'
+elif command -v batcat &> /dev/null; then
+    alias cat="batcat"
+    alias catn='batcat --style=plain'
+    alias catnp='bat --style=plain --paging=never'
+else
+    echo "Ni 'bat' ni 'batcat' están instalados. Alias no creado."
+fi
+
 alias gc="git commit -n -am"
 alias vim="nvim"
 
-# bat
-alias bat='batcat'
-alias cat='bat'
-alias catn='bat --style=plain'
-alias catnp='bat --style=plain --paging=never'
+#alias bat='batcat'
+#alias cat='bat'
 
 # ls
 alias ll='lsd -lh --group-dirs=first'
@@ -203,6 +213,14 @@ export UID GID="$(id -g $USER)" UMASK="$(umask)":x86_64
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# # FZF cfg
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-. "$HOME/.cargo/env"
+
+# Cargo enviroment (rust)
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# Fastfetch
+if command -v fastfetch &> /dev/null; then
+    fastfetch
+fi
 
