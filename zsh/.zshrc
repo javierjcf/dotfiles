@@ -207,7 +207,7 @@ function rzf() {
 
 
 
-export UID GID="$(id -g $USER)" UMASK="$(umask)":x86_64
+export UID="$(id -u $USER)" GID="$(id -g $USER)" UMASK="$(umask)":x86_64
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
