@@ -225,3 +225,6 @@ export UID="$(id -u $USER)" GID="$(id -g $USER)" UMASK="$(umask)":x86_64
 
 
 
+
+# opencode
+export PATH=/home/javier/.opencode/bin:$PATH
