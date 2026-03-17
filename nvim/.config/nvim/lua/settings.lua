@@ -21,6 +21,21 @@ o.syntax = 'on'               -- hightlight sintax
 o.clipboard = 'unnamedplus'   -- using system keyboard
 --o.cc = '80'                     -- 80 as line border
 
+-- Wayland clipboard
+vim.g.clipboard = {
+  name = 'wl-clipboard',
+  copy = {
+    ['+'] = 'wl-copy',
+    ['*'] = 'wl-copy',
+  },
+  paste = {
+    ['+'] = 'wl-paste',
+    ['*'] = 'wl-paste',
+  },
+  cache_enabled = 0,
+}
+
+
 
 -- TIMEOUTS PARA EL REMAP DE JK COMO ESC
 o.timeout = true
