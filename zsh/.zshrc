@@ -228,3 +228,5 @@ export UID="$(id -u $USER)" GID="$(id -g $USER)" UMASK="$(umask)":x86_64
 
 # opencode
 export PATH=/home/javier/.opencode/bin:$PATH
+export DOODBA_GITAGGREGATE_UID GID="$(id -g $USER)" DOODBA_UMASK="$(umask)"
+export UID GID="$(id -g $USER)" UMASK="$(umask)"
