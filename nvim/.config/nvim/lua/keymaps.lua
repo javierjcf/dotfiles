@@ -63,10 +63,6 @@ keymap("n", "<leader>tk", "<C-w>t<C-w>K", opts)
 
 -- PLUGINS
 
---NvimTree
-keymap('n', '<C-B>', ':NvimTreeToggle<cr>', opts)
-keymap('i', '<C-B>', ':NvimTreeToggle<cr>', opts)
-
 -- Better terminal
 keymap("n", "<leader>st", function()
     vim.cmd.vnew()
