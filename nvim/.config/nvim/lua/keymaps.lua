@@ -7,7 +7,7 @@
 --   command_mode = "c",
 
 
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 local opts = { noremap = true, silent= true}
 
 -- LeaderKey
@@ -68,7 +68,7 @@ keymap('n', '<C-B>', ':NvimTreeToggle<cr>', opts)
 keymap('i', '<C-B>', ':NvimTreeToggle<cr>', opts)
 
 -- Better terminal
-vim.keymap.set("n", "<leader>st", function()
+keymap("n", "<leader>st", function()
     vim.cmd.vnew()
     vim.cmd.term()
     vim.cmd.wincmd("J")

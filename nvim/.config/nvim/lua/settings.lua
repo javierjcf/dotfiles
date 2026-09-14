@@ -4,9 +4,7 @@
 local o = vim.o
 local g = vim.g
 
---o.nocompatible = true         -- disable compatibility old-time vi
 o.ignorecase = true           -- case insensitive
-o.mouse = 'v'                 -- middle-click paste with
 o.mouse = 'a'                 -- enable mouse
 o.hlsearch = true             -- highlight search
 o.incsearch = true            -- incremental search
@@ -19,7 +17,6 @@ o.number = true               -- show line numbers
 o.relativenumber = true       -- showrelative numbers
 o.syntax = 'on'               -- hightlight sintax 
 o.clipboard = 'unnamedplus'   -- using system keyboard
---o.cc = '80'                     -- 80 as line border
 
 -- Wayland clipboard
 vim.g.clipboard = {

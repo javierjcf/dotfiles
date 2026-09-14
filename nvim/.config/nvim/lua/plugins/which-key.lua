@@ -2,17 +2,10 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
-    plugins = { spelling = true },
-    defaults = {
-      mode = { "n", "v" },
-      ["<leader>f"] = { name = "+file/find" },
-      ["<leader>g"] = { name = "+git" },
-      ["<leader>s"] = { name = "+search" },
+    spec = {
+      { "<leader>f", group = "file/find", mode = { "n", "v" } },
+      { "<leader>g", group = "git", mode = { "n", "v" } },
+      { "<leader>s", group = "search", mode = { "n", "v" } },
     },
   },
-  config = function(_, opts)
-    local wk = require("which-key")
-    wk.setup(opts)
-    wk.register(opts.defaults)
-  end,
 }

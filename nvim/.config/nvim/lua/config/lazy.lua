@@ -20,4 +20,10 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
+  performance = {
+    rtp = {
+      -- keep the system tree-sitter parsers (e.g. vimdoc) that lazy's rtp reset drops
+      paths = { "/usr/lib/x86_64-linux-gnu/nvim" },
+    },
+  },
 })
