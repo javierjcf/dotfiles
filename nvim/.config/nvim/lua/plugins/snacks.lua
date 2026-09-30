@@ -3,15 +3,17 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    explorer = { replace_netrw = true },
     picker = {
       -- replicate the old telescope setup: search hidden and gitignored files too
       sources = {
         files = { hidden = true, ignored = true },
+        explorer = { hidden = true, ignored = false },
         grep = { hidden = true, ignored = true },
       },
     },
-    explorer = {},
   },
+  
   keys = {
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files (root dir)" },
     { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep (root dir)" },
