@@ -13,7 +13,6 @@ return {
       },
     },
   },
-  
   keys = {
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files (root dir)" },
     { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep (root dir)" },

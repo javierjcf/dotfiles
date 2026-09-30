@@ -4,6 +4,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("mini.pairs").setup()
+      require("mini.icons").setup()
       require("mini.statusline").setup()
       require("mini.tabline").setup()
     end,
