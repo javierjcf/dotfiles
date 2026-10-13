@@ -208,7 +208,42 @@ function rzf() {
     rg --line-number --column "$query" | fzf --preview="bat --style=numbers --color=always --line-range=:500 {1} | tail -n +{2}" --delimiter=":" --preview-window=right:50%
 }
 
+# function sshf() {
+#     local host
+#     host=$(grep -E '^Host ' ~/.ssh/config |
+#         awk '{for (i=2; i<=NF; i++) print $i}' |
+#         grep -v '[*?]' |
+#         sort -u |
+#         fzf --prompt="SSH > ") || return
+#     [ -n "$host" ] && ssh "$host"
+# }
 
+function sshf() {
+    local host
+
+    host=$(
+        awk '$1 == "Host" {
+            for (i=2; i<=NF; i++)
+                if ($i !~ /[*?]/) print $i
+        }' ~/.ssh/config |
+        sort -u |
+        fzf \
+            --prompt="󰣀 SSH > " \
+            --height=80% \
+            --layout=reverse \
+            --border=rounded \
+            --header="ENTER conectar  •  ESC salir" \
+            --preview '
+                echo "  CONEXIÓN SSH"
+                echo "  ──────────────────────"
+                ssh -G {} 2>/dev/null |
+                    grep -E "^(hostname|user|port|identityfile|identitiesonly) "
+            ' \
+            --preview-window='right:50%:wrap'
+    ) || return
+
+    [[ -n "$host" ]] && ssh "$host"
+}
 
 
 export UID="$(id -u $USER)" GID="$(id -g $USER)" UMASK="$(umask)":x86_64
