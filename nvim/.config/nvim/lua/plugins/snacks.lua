@@ -8,7 +8,7 @@ return {
       -- replicate the old telescope setup: search hidden and gitignored files too
       sources = {
         files = { hidden = true, ignored = true },
-        explorer = { hidden = true, ignored = false },
+        explorer = { hidden = true, ignored = true },
         grep = { hidden = true, ignored = true },
       },
     },
