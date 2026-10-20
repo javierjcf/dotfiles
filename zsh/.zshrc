@@ -263,5 +263,10 @@ export UID="$(id -u $USER)" GID="$(id -g $USER)" UMASK="$(umask)":x86_64
 
 # opencode
 export PATH=/home/javier/.opencode/bin:$PATH
-export DOODBA_GITAGGREGATE_UID GID="$(id -g $USER)" DOODBA_UMASK="$(umask)"
-export UID GID="$(id -g $USER)" UMASK="$(umask)"
+
+# Doodba: que git-aggregate y los contenedores creen ficheros con mi usuario, no root
+export UID
+export GID="$(id -g)"
+export DOODBA_GITAGGREGATE_UID="$(id -u)"
+export DOODBA_GITAGGREGATE_GID="$(id -g)"
+export DOODBA_UMASK="$(umask)"
