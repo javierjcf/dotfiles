@@ -81,7 +81,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions nvm sudo z copypath copyfile copybuffer fzf)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions nvm sudo copypath copyfile copybuffer fzf)
 
 FZF_BASE=/home/javier/.fzf/bin/fzf
 
@@ -149,8 +149,6 @@ alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
 
-# j es autojump (j)
-alias j='z'
 
 # CUSTOM FUNCTIONS
 irda() {
@@ -208,16 +206,6 @@ function rzf() {
     rg --line-number --column "$query" | fzf --preview="bat --style=numbers --color=always --line-range=:500 {1} | tail -n +{2}" --delimiter=":" --preview-window=right:50%
 }
 
-# function sshf() {
-#     local host
-#     host=$(grep -E '^Host ' ~/.ssh/config |
-#         awk '{for (i=2; i<=NF; i++) print $i}' |
-#         grep -v '[*?]' |
-#         sort -u |
-#         fzf --prompt="SSH > ") || return
-#     [ -n "$host" ] && ssh "$host"
-# }
-
 function sshf() {
     local host
 
@@ -259,6 +247,8 @@ export UID="$(id -u $USER)" GID="$(id -g $USER)" UMASK="$(umask)":x86_64
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 
+#1Password SSH AGENT
+export SSH_AUTH_SOCK=~/.1password/agent.sock
 
 
 # opencode
@@ -270,3 +260,6 @@ export GID="$(id -g)"
 export DOODBA_GITAGGREGATE_UID="$(id -u)"
 export DOODBA_GITAGGREGATE_GID="$(id -g)"
 export DOODBA_UMASK="$(umask)"
+
+#zoxide
+eval "$(zoxide init --cmd j bash)"
