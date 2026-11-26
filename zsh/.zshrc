@@ -262,4 +262,4 @@ export DOODBA_GITAGGREGATE_GID="$(id -g)"
 export DOODBA_UMASK="$(umask)"
 
 #zoxide
-eval "$(zoxide init --cmd j bash)"
+eval "$(zoxide init --cmd j zsh)"
